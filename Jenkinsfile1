@@ -64,14 +64,14 @@ stage("Docker Build & Push"){
                 }
             }
         }
-        stage("TRIVY"){
+       /* stage("TRIVY"){
             steps{
                 sh "trivy image 9666109090/devsecops_ad:latest > trivy.txt" 
             }
-        }
+        } */
 stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name 2050 -p 3001:3000 9666109090/devsecops_ad:latest'
+                sh 'docker run -d --name 2050 -p 3002:3000 9666109090/devsecops_ad:latest'
             }
         }
 stage('Deploy to kubernets'){
